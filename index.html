@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>極限拳士組手「階数↔︎ポイント」変換ツール</title>
+</head>
+<body>
+北斗無双モバイルのイベント「極限拳士組手」の到達階数とその時点でのポイントの変換をするツールです。
+<h1>何階到達時点のポイントが知りたいですか？</h1>
+<button onclick="askGame()">到達階数を入力する</button>
+<script>
+function askGame() {
+    let userInput = prompt("何階到達時点のポイントが知りたいですか？(40階以上を入力してください)");
+    let result = userInput - 40;
+    // 数値を10で割った商を求める
+    let dividend = result; // 割られる数を定義します
+    let quotient = Math.floor(dividend / 10); // 10で割る操作を行います
+
+    // 階数の1の位に応じてポイントを求める
+　　 let inputValue = result % 10;
+    let onesPlace;
+
+if (inputValue === 9) {
+    onesPlace = 604800;
+} else if (inputValue === 8) {
+    onesPlace = 496800;
+} else if (inputValue === 7) {
+    onesPlace = 410400;
+} else if (inputValue === 6) {
+    onesPlace = 324000;
+} else if (inputValue === 5) {
+    onesPlace = 237600;
+} else if (inputValue === 4) {
+    onesPlace = 172800;
+} else if (inputValue === 3) {
+    onesPlace = 108000;
+} else if (inputValue === 2) {
+    onesPlace = 64800;
+} else if (inputValue === 1) {
+    onesPlace = 21600;
+} else if (inputValue === 0) {
+    onesPlace = 0;
+} else {
+    // それ以外の場合の処理
+    onesPlace = 0; // 例えば、デフォルトの値を設定するなど
+}
+
+
+    // 求めたポイントを全て足して結果を算出する
+    let point = quotient * 734400 + 1387200 + onesPlace
+    alert("到達時の獲得ポイントは " + point + " です！");
+}
+</script>
+
+
+</body>
+</html>
+
+
+
